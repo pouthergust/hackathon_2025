@@ -4,7 +4,6 @@ import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
-import { AxiosError, AxiosResponse } from 'axios'; // Importe AxiosResponse
 
 // DTO (Data Transfer Object)
 export interface CurrentWeather {
@@ -46,9 +45,7 @@ export class WeatherApiService {
     this.logger.log(`Requisitando dados do tempo para lat: ${lat}, lon: ${lon}`);
 
     try {
-      // CORREÇÃO: Adicionado o tipo 'AxiosResponse<any>' para a variável 'response'.
-      // Isso resolve o erro "'response' is of type 'unknown'".
-      const response: AxiosResponse<any> = await firstValueFrom(
+      const response: any = await firstValueFrom(
         this.httpService.get(url, {
           auth: {
             username: this.USER_NAME,
@@ -57,13 +54,12 @@ export class WeatherApiService {
         }),
       );
 
-      return this.formatApiResponse(response.data, lat, lon);
+      return this.formatApiResponse(response?.data, lat, lon);
 
-    } catch (error) {
-      const axiosError = error as AxiosError;
-      this.logger.error(`Falha ao buscar dados do tempo: ${axiosError.message}`, axiosError.stack);
+    } catch (error: any) {
+      this.logger.error(`Falha ao buscar dados do tempo: ${error?.message ?? 'Erro desconhecido'}`, error?.stack);
       
-      if (axiosError.response?.status === 404) {
+      if (error?.response?.status === 404) {
           throw new NotFoundException(`Não foi possível encontrar dados para a localização (${lat}, ${lon})`);
       }
       
