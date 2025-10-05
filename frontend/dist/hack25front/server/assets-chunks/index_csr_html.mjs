@@ -1,0 +1,14 @@
+export default `<!doctype html>
+<html lang="en" data-beasties-container="">
+<head>
+  <meta charset="utf-8">
+  <title>Hack25front</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<style>html,body{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}body{line-height:1}</style><link rel="stylesheet" href="styles-PL3ZO7JF.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-PL3ZO7JF.css"></noscript></head>
+<body ngcm="">
+  <app-root></app-root>
+<script src="polyfills-7R4CRVNH.js" type="module"></script><script src="main-5RMCDBZO.js" type="module"></script></body>
+</html>
+`;
