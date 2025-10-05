@@ -1,0 +1,34 @@
+.balao {
+    &-container {
+        position: absolute;
+        bottom: 420px;
+        right: 350px;
+        width: 150px;
+        // height: 40px;
+    }
+
+    &-wrapper {
+        position: relative;
+        display: grid;
+        place-content: center;
+        width: 200px;
+        height: 80px;
+    }
+
+    &-bg {
+        position: absolute;
+        left: -35px;
+        top: -60px;
+        // z-index: -1;
+        transform: scaleX(-1);
+        max-width: 130%;
+    }
+    
+    &-texto {
+        position: absolute;
+        inset: 0;
+        font-size: 14px;
+        color: black;
+        text-align: center;
+    }
+}
