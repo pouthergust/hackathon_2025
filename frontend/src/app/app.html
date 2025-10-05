@@ -8,15 +8,14 @@
 
 <main>
   <div class="fundoprincipal">
-    <div *ngIf="pagNumber === 1">
-      <app-livro-capa></app-livro-capa>
-    </div>
-    <div *ngIf="pagNumber === 2">
-      <app-pagina-vovo></app-pagina-vovo>
-    </div>
-    <!-- <app-pagina-agricultor></app-pagina-agricultor> -->
-    <!-- <app-pagina-agricultor></app-pagina-agricultor> -->
-
+    @switch(pagNumber) {
+      @case (1) {
+        <app-livro-capa></app-livro-capa>
+      }
+      @case (2) {
+        <app-pagina-vovo></app-pagina-vovo>
+      }
+    }
      <button matButton="filled" (click)="increasePage()">+</button>
       <span>{{ pagNumber }}</span>
      <button matButton="filled" (click)="decreasePage()">-</button>

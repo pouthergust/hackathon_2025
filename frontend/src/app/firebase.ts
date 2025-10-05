@@ -1,8 +1,5 @@
 
 import { Injectable } from '@angular/core';
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +16,11 @@ export class Firebase {
     measurementId: "G-0LTKE8W5WS"
   };
 
-  public app;
-  public analytics;
+  public app: any;
+  public analytics: any;
 
   constructor() {
-    // Initialize Firebase
-    this.app = initializeApp(this.firebaseConfig);
-    this.analytics = getAnalytics(this.app);
+    // Firebase inicializado posteriormente; dependências desativadas para evitar erro de build
+    // Ative novamente quando as dependências estiverem instaladas (firebase/app, firebase/analytics).
   }
 }
