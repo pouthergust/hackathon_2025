@@ -42,3 +42,23 @@ pnpm run serve:ssr:hack25front
 ## Dicas
 - Este frontend faz parte do monorepo e pode ser executado em paralelo ao backend.
 - Utilize `pnpm` para manter consistência com os workspaces.
+
+## Docker
+Você pode construir e rodar o frontend (SSR) com Docker.
+
+### Build da imagem
+Na raiz do monorepo, execute:
+```bash
+docker build -f frontend/Dockerfile -t hack25front:latest ./frontend
+```
+
+### Rodar o contêiner
+Por padrão o servidor SSR usa a porta `4000` (ou `PORT` se definida):
+```bash
+docker run --rm -p 4000:4000 hack25front:latest
+```
+
+### Notas
+- O build usa multi-stage: compila com `ng build` gerando `browser` e `server`.
+- O comando de execução é `node dist/hack25front/server/server.mjs`.
+- Ajuste a variável `PORT` via `-e PORT=8080` se quiser alterar a porta.
