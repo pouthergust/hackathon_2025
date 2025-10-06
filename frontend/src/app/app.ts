@@ -4,23 +4,15 @@ import { ChatBaloon } from './components/chat-baloon/chat-baloon';
 import { PaginaAgricultor } from "./pages/pagina-agricultor/pagina-agricultor";
 import { PaginaVovo } from "./pages/pagina-vovo/pagina-vovo";
 import { CommonModule } from '@angular/common';
+import { PaginaFotografo } from "./pages/pagina-fotografo/pagina-fotografo";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LivroCapa, ChatBaloon, PaginaAgricultor, PaginaVovo, CommonModule],
+  imports: [LivroCapa, ChatBaloon, PaginaAgricultor, PaginaVovo, CommonModule, PaginaFotografo],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = 'hack25front';
-  pagNumber = 1;
-
-  increasePage() {
-    this.pagNumber++;
-  }
-
-  decreasePage() {
-    this.pagNumber--;
-  }
+ 
 }
