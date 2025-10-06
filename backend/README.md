@@ -56,3 +56,26 @@ pnpm test:e2e
 ## Observações
 - Este projeto faz parte do monorepo e pode ser iniciado em paralelo ao frontend.
 - Certifique-se de configurar o `.env` antes de executar em produção.
+
+## Docker
+Você pode construir e rodar apenas o backend com Docker, ignorando completamente o frontend.
+
+### Build da imagem
+Na raiz do monorepo, execute:
+```bash
+docker build -f backend/Dockerfile -t hack25back:latest ./backend
+```
+
+### Rodar o contêiner
+Usando o arquivo de variáveis (ajuste conforme necessário):
+```bash
+docker run --rm \
+  --env-file ./backend/.env \
+  -p 3000:3000 \
+  hack25back:latest
+```
+
+### Notas
+- A imagem é multi-stage: compila o código (NestJS) e só leva as dependências de produção para o runtime.
+- O contêiner expõe a porta `3000`. Ajuste `-p 3000:3000` se necessário.
+- O `.env` não é incluso na imagem (por segurança). Forneça via `--env-file` ou variáveis `-e`.
