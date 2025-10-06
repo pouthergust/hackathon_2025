@@ -1,3 +1,37 @@
-.fundoprincipal{
+.fundoprincipal {
     width: 100%;
+}
+
+.page-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 1rem;
+
+    button {
+        min-width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+
+    .page-number {
+        font-size: 1.25rem;
+        font-weight: 600;
+        min-width: 40px;
+        text-align: center;
+    }
 }

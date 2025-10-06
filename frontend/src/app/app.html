@@ -9,6 +9,9 @@
 <main>
   <div class="fundoprincipal">
     @switch(pagNumber) {
+      @case (0) {
+        <app-pagina-introducao></app-pagina-introducao>
+      }
       @case (1) {
         <app-livro-capa></app-livro-capa>
       }
@@ -16,15 +19,26 @@
         <app-pagina-vovo></app-pagina-vovo>
       }
       @case (3) {
-        <app-pagina-agricultor></app-pagina-agricultor>
-      }
-      @case (4) {
         <app-pagina-fotografo></app-pagina-fotografo>
       }
+      @case (4) {
+        <app-pagina-agricultor></app-pagina-agricultor>
+      }
+      @case (5) {
+        <app-pagina-reflexao></app-pagina-reflexao>
+      }
+      @case (6) {
+        <app-pagina-sonho></app-pagina-sonho>
+      }
+      @case (7) {
+        <app-pagina-conclusao></app-pagina-conclusao>
+      }
     }
-     <button matButton="filled" (click)="increasePage()">+</button>
-      <span>{{ pagNumber }}</span>
-     <button matButton="filled" (click)="decreasePage()">-</button>
+    <div class="page-controls">
+      <button matButton="filled" (click)="decreasePage()">-</button>
+      <span class="page-number">{{ pagNumber }}</span>
+      <button matButton="filled" (click)="increasePage()">+</button>
+    </div>
   </div>
 </main>
 
