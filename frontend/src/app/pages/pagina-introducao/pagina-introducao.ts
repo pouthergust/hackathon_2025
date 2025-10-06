@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './pagina-introducao.scss'
 })
 export class PaginaIntroducao {
-
+  onClick() {
+    console.log('Botão de tempestade solar clicado!');
+  }
 }
