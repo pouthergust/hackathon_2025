@@ -6,14 +6,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:front": "cd frontend && pnpm start",
     "start:back": "cd backend && pnpm start:dev",
-    "start": "concurrently \"pnpm start:front\" \"pnpm start:back\"" 
+    "start": "concurrently \"pnpm start:front\" \"pnpm start:back\""
   },
   "keywords": [],
-  "workspaces": [
-    "frontend",
-    "backend"
-  ],
   "author": "Sexto Quasar",
   "license": "ISC",
-  "packageManager": "pnpm@10.17.0"
+  "packageManager": "pnpm@10.17.0",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
 }
